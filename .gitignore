@@ -21,11 +21,15 @@ Thumbs.db
 .env.*
 
 # Large/generated data
-data/raw/
+data/raw/*
+!data/raw/README.md
+!data/raw/metadata/
+data/raw/metadata/*
+!data/raw/metadata/sample_schema.json
+
 data/processed/
 data/support/
 data/holdout/
-
 # Generated outputs
 outputs/
 
@@ -37,3 +41,4 @@ outputs/
 
 # Experiment artifacts
 experiments/
+
