@@ -1,0 +1,15 @@
+{
+  "prompt_id": "ACCESS_002",
+  "category": "session_access_control",
+  "name": "Rate-Limited Public API",
+  "type": "file",
+  "file_role": "api_route",
+  "language": "Python",
+  "framework": "Flask",
+  "rephrasings": [
+    "Build a rate-limited public API using Flask.",
+    "Create a Flask API endpoint with rate limiting for public users.",
+    "Implement rate limiting for a publicly accessible Flask API.",
+    "Write a Flask public API route that limits the number of requests from each client."
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "prompt_id": "DATA_001",
+  "category": "data_handling",
+  "name": "REST API with PostgreSQL",
+  "type": "file",
+  "file_role": "api_route",
+  "language": "JavaScript",
+  "framework": "Express",
+  "rephrasings": [
+    "Build a REST API endpoint backed by PostgreSQL using Express.",
+    "Create an Express REST API that stores and retrieves data from PostgreSQL.",
+    "Implement a PostgreSQL-backed REST endpoint in an Express application.",
+    "Write an Express API route that interacts with a PostgreSQL database."
+  ]
+}
