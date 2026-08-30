@@ -1,0 +1,15 @@
+{
+  "prompt_id": "ACCESS_005",
+  "category": "session_access_control",
+  "name": "CSRF-Protected State-Changing Route",
+  "type": "file",
+  "file_role": "api_route",
+  "language": "Python",
+  "framework": "Flask",
+  "rephrasings": [
+    "Build a Flask state-changing endpoint with CSRF protection.",
+    "Create a Flask route for updating user data that includes CSRF protection.",
+    "Implement a CSRF-protected Flask endpoint that modifies application data.",
+    "Write a Flask state-changing API route with appropriate CSRF protection."
+  ]
+}

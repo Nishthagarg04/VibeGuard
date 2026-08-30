@@ -1,0 +1,15 @@
+{
+  "prompt_id": "ACCESS_003",
+  "category": "session_access_control",
+  "name": "Protected API Route",
+  "type": "file",
+  "file_role": "api_route",
+  "language": "JavaScript",
+  "framework": "Express",
+  "rephrasings": [
+    "Build a protected Express API route that requires an authenticated user.",
+    "Create an Express endpoint that only authenticated users can access.",
+    "Implement authentication protection for a private Express API route.",
+    "Write an Express API endpoint that verifies the user's authentication before allowing access."
+  ]
+}

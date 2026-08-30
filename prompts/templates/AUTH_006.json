@@ -1,0 +1,15 @@
+{
+  "prompt_id": "AUTH_006",
+  "category": "auth_identity",
+  "name": "User Registration API",
+  "type": "file",
+  "file_role": "auth",
+  "language": "JavaScript",
+  "framework": "Express",
+  "rephrasings": [
+    "Build a user registration API endpoint using Express.",
+    "Create an Express route for registering new users.",
+    "Implement a user signup endpoint for an Express application.",
+    "Write an Express registration API that accepts new user account details."
+  ]
+}

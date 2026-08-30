@@ -1,0 +1,15 @@
+{
+  "prompt_id": "DATA_005",
+  "category": "data_handling",
+  "name": "Command Execution Endpoint",
+  "type": "file",
+  "file_role": "api_route",
+  "language": "Python",
+  "framework": "Flask",
+  "rephrasings": [
+    "Build a Flask endpoint that executes a system command based on user input.",
+    "Create a Flask API route that runs a command using a value supplied by the client.",
+    "Implement a Flask endpoint that invokes a system utility with request parameters.",
+    "Write a Flask route that executes an operating-system command using user-provided input."
+  ]
+}

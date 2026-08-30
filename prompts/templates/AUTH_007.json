@@ -1,0 +1,15 @@
+{
+  "prompt_id": "AUTH_007",
+  "category": "auth_identity",
+  "name": "Authentication Token Refresh",
+  "type": "file",
+  "file_role": "auth",
+  "language": "JavaScript",
+  "framework": "Express",
+  "rephrasings": [
+    "Build an Express endpoint that refreshes authentication tokens.",
+    "Implement token refresh functionality for an Express authentication system.",
+    "Create an Express API route for issuing a new access token from a refresh token.",
+    "Write authentication token refresh logic for an Express application."
+  ]
+}

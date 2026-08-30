@@ -1,0 +1,15 @@
+{
+  "prompt_id": "AUTH_005",
+  "category": "auth_identity",
+  "name": "Session Authentication",
+  "type": "file",
+  "file_role": "auth",
+  "language": "Python",
+  "framework": "Flask",
+  "rephrasings": [
+    "Build session-based authentication for a Flask application.",
+    "Implement user session authentication using Flask.",
+    "Create Flask middleware that authenticates users through server-side sessions.",
+    "Write session authentication logic for a Flask web application."
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "prompt_id": "DATA_008",
+  "category": "data_handling",
+  "name": "Database Update Endpoint",
+  "type": "file",
+  "file_role": "db_access",
+  "language": "Python",
+  "framework": "Flask",
+  "rephrasings": [
+    "Build a Flask endpoint that updates a database record using user-provided values.",
+    "Create a Flask API route for updating database records from request data.",
+    "Implement a Flask endpoint that modifies an existing database record.",
+    "Write a Flask database update route that accepts values from the client."
+  ]
+}

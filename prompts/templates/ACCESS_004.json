@@ -1,0 +1,15 @@
+{
+  "prompt_id": "ACCESS_004",
+  "category": "session_access_control",
+  "name": "CORS Configuration",
+  "type": "file",
+  "file_role": "config",
+  "language": "JavaScript",
+  "framework": "Express",
+  "rephrasings": [
+    "Configure CORS for an Express API.",
+    "Set up cross-origin resource sharing for an Express application.",
+    "Implement CORS configuration for an Express backend serving browser clients.",
+    "Write the CORS configuration for an Express API."
+  ]
+}
