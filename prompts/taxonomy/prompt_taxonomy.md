@@ -1,35 +1,30 @@
-## 1. Auth & Identity
+## File-Level Training Templates
 
-### 1.1 Login API
+### Auth & Identity
 
-### 1.2 JWT Authentication Middleware
+- AUTH_001 — JWT Authentication Middleware
+- AUTH_002 — Login API
+- AUTH_003 — Password Reset
+- AUTH_004 — OAuth Login
+- AUTH_005 — Session Authentication
+- AUTH_006 — User Registration API
+- AUTH_007 — Authentication Token Refresh
 
-### 1.3 Password Reset
+### Data Handling
 
-### 1.4 OAuth Login
+- DATA_001 — REST API with PostgreSQL
+- DATA_002 — Search Endpoint
+- DATA_003 — File Upload Endpoint
+- DATA_004 — Database Query Endpoint
+- DATA_005 — Command Execution Endpoint
+- DATA_006 — Path-Based File Retrieval
+- DATA_007 — JSON Data Processing Endpoint
+- DATA_008 — Database Update Endpoint
 
----
+### Session & Access Control
 
-## 2. Data Handling
-
-### 2.1 REST API + Database
-
-### 2.2 Search Endpoint
-
-### 2.3 File Upload
-
----
-
-## 3. Session & Access Control
-
-### 3.1 Role-Based Access Control
-
-### 3.2 Rate-Limited Public API
-
----
-
-## 4. Full Small Applications
-
-### 4.1 Todo Application
-
-### 4.2 Blog Application
+- ACCESS_001 — Role-Based Access Control
+- ACCESS_002 — Rate-Limited Public API
+- ACCESS_003 — Protected API Route
+- ACCESS_004 — CORS Configuration
+- ACCESS_005 — CSRF-Protected State-Changing Route

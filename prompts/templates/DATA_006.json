@@ -1,0 +1,15 @@
+{
+  "prompt_id": "DATA_006",
+  "category": "data_handling",
+  "name": "Path-Based File Retrieval",
+  "type": "file",
+  "file_role": "api_route",
+  "language": "JavaScript",
+  "framework": "Express",
+  "rephrasings": [
+    "Build an Express endpoint that retrieves a file based on a path supplied by the user.",
+    "Create an Express file retrieval route that accepts a client-provided file path.",
+    "Implement an Express API endpoint for downloading files selected by the user.",
+    "Write an Express route that reads and returns a file using a path from the request."
+  ]
+}

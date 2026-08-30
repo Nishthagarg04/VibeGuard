@@ -1,0 +1,15 @@
+{
+  "prompt_id": "DATA_004",
+  "category": "data_handling",
+  "name": "Database Query Endpoint",
+  "type": "file",
+  "file_role": "db_access",
+  "language": "Python",
+  "framework": "Flask",
+  "rephrasings": [
+    "Build a Flask endpoint that queries records from a database.",
+    "Create a Flask API route that retrieves database records based on a request parameter.",
+    "Implement a database-backed Flask endpoint for retrieving user-specified records.",
+    "Write a Flask route that performs a database query using values supplied by the client."
+  ]
+}

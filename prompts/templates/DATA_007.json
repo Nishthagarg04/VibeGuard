@@ -1,0 +1,15 @@
+{
+  "prompt_id": "DATA_007",
+  "category": "data_handling",
+  "name": "JSON Data Processing Endpoint",
+  "type": "file",
+  "file_role": "api_route",
+  "language": "JavaScript",
+  "framework": "Express",
+  "rephrasings": [
+    "Build an Express endpoint that accepts and processes JSON data from users.",
+    "Create an Express API route that receives JSON input and stores the resulting data.",
+    "Implement an Express endpoint for processing user-submitted JSON objects.",
+    "Write an Express API route that validates and processes JSON request data."
+  ]
+}

@@ -4,10 +4,21 @@
     "AUTH_002",
     "AUTH_003",
     "AUTH_004",
+    "AUTH_005",
+    "AUTH_006",
+    "AUTH_007",
     "DATA_001",
     "DATA_002",
     "DATA_003",
+    "DATA_004",
+    "DATA_005",
+    "DATA_006",
+    "DATA_007",
+    "DATA_008",
     "ACCESS_001",
-    "ACCESS_002"
+    "ACCESS_002",
+    "ACCESS_003",
+    "ACCESS_004",
+    "ACCESS_005"
   ]
 }
