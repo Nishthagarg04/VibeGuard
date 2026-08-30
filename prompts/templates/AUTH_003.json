@@ -1,0 +1,15 @@
+{
+  "prompt_id": "AUTH_003",
+  "category": "auth_identity",
+  "name": "Password Reset",
+  "type": "file",
+  "file_role": "auth",
+  "language": "Python",
+  "framework": "Flask",
+  "rephrasings": [
+    "Build a password reset endpoint using Flask.",
+    "Create a Flask API for resetting a user's password through email.",
+    "Implement password reset functionality for a Flask application.",
+    "Write a Flask password recovery endpoint that sends a reset link by email."
+  ]
+}

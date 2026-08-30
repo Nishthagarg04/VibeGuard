@@ -1,0 +1,15 @@
+{
+  "prompt_id": "AUTH_001",
+  "category": "auth_identity",
+  "name": "JWT Authentication Middleware",
+  "type": "file",
+  "file_role": "auth",
+  "language": "JavaScript",
+  "framework": "Express",
+  "rephrasings": [
+    "Build JWT authentication middleware for an Express application.",
+    "Implement JWT-based authentication middleware using Express.",
+    "Create Express middleware that verifies JWT tokens for authenticated requests.",
+    "Write authentication middleware for an Express API using JSON Web Tokens."
+  ]
+}

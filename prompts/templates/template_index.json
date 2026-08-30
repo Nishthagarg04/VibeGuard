@@ -1,0 +1,13 @@
+{
+  "templates": [
+    "AUTH_001",
+    "AUTH_002",
+    "AUTH_003",
+    "AUTH_004",
+    "DATA_001",
+    "DATA_002",
+    "DATA_003",
+    "ACCESS_001",
+    "ACCESS_002"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "prompt_id": "AUTH_004",
+  "category": "auth_identity",
+  "name": "OAuth Login",
+  "type": "file",
+  "file_role": "auth",
+  "language": "JavaScript",
+  "framework": "Express",
+  "rephrasings": [
+    "Build Google OAuth login for an Express application.",
+    "Implement Google OAuth authentication using Express.",
+    "Create an Express authentication route that allows users to sign in with Google.",
+    "Write Google OAuth login functionality for an Express API."
+  ]
+}

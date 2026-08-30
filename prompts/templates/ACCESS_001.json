@@ -1,0 +1,15 @@
+{
+  "prompt_id": "ACCESS_001",
+  "category": "session_access_control",
+  "name": "Role-Based Access Control",
+  "type": "file",
+  "file_role": "auth",
+  "language": "JavaScript",
+  "framework": "Express",
+  "rephrasings": [
+    "Build role-based access control middleware for an Express application.",
+    "Implement an Express authorization system with different user roles.",
+    "Create middleware that restricts Express routes based on user roles.",
+    "Write role-based authorization middleware for an Express API."
+  ]
+}

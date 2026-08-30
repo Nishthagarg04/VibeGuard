@@ -1,0 +1,15 @@
+{
+  "prompt_id": "AUTH_002",
+  "category": "auth_identity",
+  "name": "Login API",
+  "type": "file",
+  "file_role": "auth",
+  "language": "JavaScript",
+  "framework": "Express",
+  "rephrasings": [
+    "Build a login API endpoint using Express.",
+    "Create an Express API endpoint that handles user login.",
+    "Implement a user authentication login route for an Express application.",
+    "Write an Express login endpoint that authenticates users."
+  ]
+}

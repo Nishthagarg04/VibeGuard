@@ -1,0 +1,15 @@
+{
+  "prompt_id": "DATA_003",
+  "category": "data_handling",
+  "name": "File Upload Endpoint",
+  "type": "file",
+  "file_role": "api_route",
+  "language": "JavaScript",
+  "framework": "Express",
+  "rephrasings": [
+    "Build a file upload endpoint using Express.",
+    "Create an Express API route that accepts user-uploaded files.",
+    "Implement a file upload API endpoint for an Express application.",
+    "Write an Express route that receives and stores uploaded files."
+  ]
+}

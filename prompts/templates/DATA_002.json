@@ -1,0 +1,15 @@
+{
+  "prompt_id": "DATA_002",
+  "category": "data_handling",
+  "name": "Search Endpoint",
+  "type": "file",
+  "file_role": "api_route",
+  "language": "Python",
+  "framework": "Flask",
+  "rephrasings": [
+    "Build a Flask search endpoint that accepts user-supplied filters.",
+    "Create a search API using Flask with user-provided query filters.",
+    "Implement a Flask endpoint that searches database records based on user input.",
+    "Write a Flask search route that accepts filtering parameters from users."
+  ]
+}
