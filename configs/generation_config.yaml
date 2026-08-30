@@ -1,0 +1,21 @@
+# VibeGuard dataset generation configuration
+
+# Models used as generation sources.
+# Exact model/API identifiers will be finalized before generation.
+models:
+  - name: GPT-4o
+  - name: Claude
+  - name: Llama
+
+# Generation strategy.
+# Approximately half of the samples should be generated one-shot,
+# while the remainder should come from multi-round refinement chains.
+generation:
+  one_shot_fraction: 0.5
+  min_refinement_rounds: 2
+  max_refinement_rounds: 4
+
+# File/snippet-level training corpus target.
+dataset:
+  target_min_samples: 2000
+  target_max_samples: 5000
