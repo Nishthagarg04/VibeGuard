@@ -1,0 +1,15 @@
+{
+  "sample_id": "S000001",
+  "chain_id": "CHAIN000001",
+  "code_path": "data/raw/training/S000001.js",
+  "model": "GPT-4o",
+  "prompt_id": "AUTH_001",
+  "prompt_text": "Build a login API using Express.",
+  "category": "auth_identity",
+  "round": 1,
+  "generation_type": "one-shot",
+  "language": "JavaScript",
+  "framework": "Express",
+  "file_role": "auth",
+  "timestamp": "2026-08-30T00:00:00"
+}
