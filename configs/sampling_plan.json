@@ -1,0 +1,852 @@
+{
+    "experiment": {
+        "target_samples_per_model": 1000,
+        "one_shot_per_model": 500,
+        "multi_round_per_model": 500,
+        "samples_per_template": 50
+    },
+    "multi_round_distribution": {
+        "2": 200,
+        "3": 180,
+        "4": 120
+    },
+    "models": {
+        "gemini_3_5_flash_lite": {
+            "name": "gemini-3.5-flash-lite",
+            "provider": "google",
+            "target": 1000,
+            "generated": 1,
+            "remaining": 999,
+            "one_shot": {
+                "target": 500,
+                "generated": 1,
+                "remaining": 499
+            },
+            "multi_round": {
+                "target": 500,
+                "generated": 0,
+                "remaining": 500
+            },
+            "templates": {
+                "ACCESS_001": {
+                    "prompt_id": "ACCESS_001",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "ACCESS_002": {
+                    "prompt_id": "ACCESS_002",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "ACCESS_003": {
+                    "prompt_id": "ACCESS_003",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "ACCESS_004": {
+                    "prompt_id": "ACCESS_004",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "ACCESS_005": {
+                    "prompt_id": "ACCESS_005",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "AUTH_001": {
+                    "prompt_id": "AUTH_001",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 1,
+                        "remaining": 24
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "AUTH_002": {
+                    "prompt_id": "AUTH_002",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "AUTH_003": {
+                    "prompt_id": "AUTH_003",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "AUTH_004": {
+                    "prompt_id": "AUTH_004",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "AUTH_005": {
+                    "prompt_id": "AUTH_005",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "AUTH_006": {
+                    "prompt_id": "AUTH_006",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "AUTH_007": {
+                    "prompt_id": "AUTH_007",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "DATA_001": {
+                    "prompt_id": "DATA_001",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "DATA_002": {
+                    "prompt_id": "DATA_002",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "DATA_003": {
+                    "prompt_id": "DATA_003",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "DATA_004": {
+                    "prompt_id": "DATA_004",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "DATA_005": {
+                    "prompt_id": "DATA_005",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "DATA_006": {
+                    "prompt_id": "DATA_006",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "DATA_007": {
+                    "prompt_id": "DATA_007",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "DATA_008": {
+                    "prompt_id": "DATA_008",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                }
+            }
+        },
+        "mistral_small": {
+            "name": "mistral-small-latest",
+            "provider": "mistral",
+            "target": 1000,
+            "generated": 1,
+            "remaining": 999,
+            "one_shot": {
+                "target": 500,
+                "generated": 1,
+                "remaining": 499
+            },
+            "multi_round": {
+                "target": 500,
+                "generated": 0,
+                "remaining": 500
+            },
+            "templates": {
+                "ACCESS_001": {
+                    "prompt_id": "ACCESS_001",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "ACCESS_002": {
+                    "prompt_id": "ACCESS_002",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "ACCESS_003": {
+                    "prompt_id": "ACCESS_003",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "ACCESS_004": {
+                    "prompt_id": "ACCESS_004",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "ACCESS_005": {
+                    "prompt_id": "ACCESS_005",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "AUTH_001": {
+                    "prompt_id": "AUTH_001",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 1,
+                        "remaining": 24
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "AUTH_002": {
+                    "prompt_id": "AUTH_002",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "AUTH_003": {
+                    "prompt_id": "AUTH_003",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "AUTH_004": {
+                    "prompt_id": "AUTH_004",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "AUTH_005": {
+                    "prompt_id": "AUTH_005",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "AUTH_006": {
+                    "prompt_id": "AUTH_006",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "AUTH_007": {
+                    "prompt_id": "AUTH_007",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "DATA_001": {
+                    "prompt_id": "DATA_001",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "DATA_002": {
+                    "prompt_id": "DATA_002",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "DATA_003": {
+                    "prompt_id": "DATA_003",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "DATA_004": {
+                    "prompt_id": "DATA_004",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "DATA_005": {
+                    "prompt_id": "DATA_005",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "DATA_006": {
+                    "prompt_id": "DATA_006",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "DATA_007": {
+                    "prompt_id": "DATA_007",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "DATA_008": {
+                    "prompt_id": "DATA_008",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                }
+            }
+        },
+        "gpt_oss_120b": {
+            "name": "openai/gpt-oss-120b",
+            "provider": "groq",
+            "target": 1000,
+            "generated": 2,
+            "remaining": 998,
+            "one_shot": {
+                "target": 500,
+                "generated": 2,
+                "remaining": 498
+            },
+            "multi_round": {
+                "target": 500,
+                "generated": 0,
+                "remaining": 500
+            },
+            "templates": {
+                "ACCESS_001": {
+                    "prompt_id": "ACCESS_001",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "ACCESS_002": {
+                    "prompt_id": "ACCESS_002",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "ACCESS_003": {
+                    "prompt_id": "ACCESS_003",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "ACCESS_004": {
+                    "prompt_id": "ACCESS_004",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "ACCESS_005": {
+                    "prompt_id": "ACCESS_005",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "AUTH_001": {
+                    "prompt_id": "AUTH_001",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 2,
+                        "remaining": 23
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "AUTH_002": {
+                    "prompt_id": "AUTH_002",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "AUTH_003": {
+                    "prompt_id": "AUTH_003",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "AUTH_004": {
+                    "prompt_id": "AUTH_004",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "AUTH_005": {
+                    "prompt_id": "AUTH_005",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "AUTH_006": {
+                    "prompt_id": "AUTH_006",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "AUTH_007": {
+                    "prompt_id": "AUTH_007",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "DATA_001": {
+                    "prompt_id": "DATA_001",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "DATA_002": {
+                    "prompt_id": "DATA_002",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "DATA_003": {
+                    "prompt_id": "DATA_003",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "DATA_004": {
+                    "prompt_id": "DATA_004",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "DATA_005": {
+                    "prompt_id": "DATA_005",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "DATA_006": {
+                    "prompt_id": "DATA_006",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "DATA_007": {
+                    "prompt_id": "DATA_007",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                },
+                "DATA_008": {
+                    "prompt_id": "DATA_008",
+                    "one_shot": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    },
+                    "multi_round": {
+                        "target": 25,
+                        "generated": 0,
+                        "remaining": 25
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,19 @@
+models:
+
+  - id: gemini_3_5_flash_lite
+    name: gemini-3.5-flash-lite
+    provider: google
+    dataset_name: Gemini-3.5-Flash-Lite
+    enabled: true
+
+  - id: mistral_small
+    name: mistral-small-latest
+    provider: mistral
+    dataset_name: Mistral
+    enabled: true
+
+  - id: gpt_oss_120b
+    name: openai/gpt-oss-120b
+    provider: groq
+    dataset_name: GPT-OSS-120B
+    enabled: true
