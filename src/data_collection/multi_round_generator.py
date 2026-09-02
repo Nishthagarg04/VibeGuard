@@ -1,7 +1,27 @@
 import json
 import uuid
-import sys
+import re
 from pathlib import Path
+
+from .model_clients import generate_code
+
+
+def extract_code(text):
+
+    matches = re.findall(
+        r"```(?:[a-zA-Z0-9_+#.-]+)?\s*(.*?)```",
+        text,
+        re.DOTALL
+    )
+
+    if matches:
+
+        return max(
+            matches,
+            key=len
+        ).strip()
+
+    return text.strip()
 
 
 # =========================================================
@@ -12,13 +32,7 @@ PROJECT_ROOT = (
     Path(__file__).resolve().parents[2]
 )
 
-sys.path.insert(
-    0,
-    str(PROJECT_ROOT / "src" / "data_collection")
-)
 
-
-from model_clients import generate_code
 CHAIN_PLAN_FILE = (
     PROJECT_ROOT
     / "configs"
@@ -138,6 +152,49 @@ def get_first_planned_chain(
         "No planned chains were found."
     )
 
+def get_all_planned_chains(
+    model_id
+):
+
+    plan = load_chain_plan()
+
+    if model_id not in plan["models"]:
+
+        raise ValueError(
+            f"Model not found in chain plan: "
+            f"{model_id}"
+        )
+
+    model_plan = plan[
+        "models"
+    ][
+        model_id
+    ]
+
+    planned_chains = []
+
+    for prompt_id, template_plan in (
+        model_plan["templates"].items()
+    ):
+
+        for chain in template_plan["chains"]:
+
+            planned_chains.append(
+                {
+                    "prompt_id": prompt_id,
+                    "template_plan": template_plan,
+                    "chain": chain
+                }
+            )
+
+    if not planned_chains:
+
+        raise RuntimeError(
+            f"No planned chains were found "
+            f"for model: {model_id}"
+        )
+
+    return planned_chains
 # =========================================================
 # 2. Generate unique IDs
 # =========================================================
@@ -150,11 +207,10 @@ def create_sample_id():
     )
 
 
-def create_chain_id():
+def create_chain_id(model_id,prompt_id,chain_number):
 
     return (
-        "CHAIN_"
-        + uuid.uuid4().hex[:12]
+        f"CHAIN_{model_id}_{prompt_id}_{chain_number:03d}"
     )
 
 
@@ -217,6 +273,321 @@ def save_metadata(
             + "\n"
         )
 
+def load_existing_metadata():
+
+    if not METADATA_FILE.exists():
+
+        return []
+
+    records = []
+
+    with open(
+        METADATA_FILE,
+        "r",
+        encoding="utf-8"
+    ) as file:
+
+        for line in file:
+
+            line = line.strip()
+
+            if not line:
+                continue
+
+            records.append(
+                json.loads(line)
+            )
+
+    return records
+
+def get_existing_rounds(
+    chain_id,
+    metadata_records
+):
+
+    return {
+        record["round"]
+        for record in metadata_records
+        if record.get("chain_id") == chain_id
+    }
+
+def get_next_round(
+    chain_id,
+    total_rounds,
+    metadata_records
+):
+
+    existing_rounds = get_existing_rounds(
+        chain_id,
+        metadata_records
+    )
+
+    for round_number in range(
+        1,
+        total_rounds + 1
+    ):
+
+        if round_number not in existing_rounds:
+
+            return round_number
+
+    return None
+
+def validate_existing_rounds(
+    chain_id,
+    total_rounds,
+    metadata_records
+):
+
+    existing_rounds = get_existing_rounds(
+        chain_id,
+        metadata_records
+    )
+
+    for round_number in existing_rounds:
+
+        if (
+            round_number < 1
+            or
+            round_number > total_rounds
+        ):
+
+            raise RuntimeError(
+                f"Invalid existing round "
+                f"{round_number} for chain "
+                f"{chain_id}. "
+                f"Expected rounds 1-{total_rounds}."
+            )
+
+    if existing_rounds:
+
+        expected_rounds = set(
+            range(
+                1,
+                max(existing_rounds) + 1
+            )
+        )
+
+        if existing_rounds != expected_rounds:
+
+            raise RuntimeError(
+                f"Missing earlier round in "
+                f"chain {chain_id}. "
+                f"Existing rounds: "
+                f"{sorted(existing_rounds)}"
+            )
+
+def load_code(code_file):
+
+    code_path = PROJECT_ROOT / code_file
+
+    if not code_path.exists():
+
+        raise FileNotFoundError(
+            f"Code file referenced by metadata "
+            f"does not exist: {code_path}"
+        )
+
+    with open(
+        code_path,
+        "r",
+        encoding="utf-8"
+    ) as file:
+
+        return file.read()
+
+def get_existing_round_metadata(
+    chain_id,
+    round_number,
+    metadata_records
+):
+
+    for record in metadata_records:
+
+        if (
+            record.get("chain_id") == chain_id
+            and
+            record.get("round") == round_number
+        ):
+
+            return record
+
+    return None
+
+def get_resume_state(
+    chain_id,
+    total_rounds,
+    metadata_records
+):
+
+    validate_existing_rounds(
+        chain_id,
+        total_rounds,
+        metadata_records
+    )
+
+    next_round = get_next_round(
+        chain_id,
+        total_rounds,
+        metadata_records
+    )
+
+    if next_round is None:
+
+        return None, None
+
+    if next_round == 1:
+
+        return 1, None
+
+    previous_round = (
+        next_round - 1
+    )
+
+    previous_metadata = (
+        get_existing_round_metadata(
+            chain_id,
+            previous_round,
+            metadata_records
+        )
+    )
+
+    if previous_metadata is None:
+
+        raise RuntimeError(
+            f"Previous round {previous_round} "
+            f"metadata not found for chain "
+            f"{chain_id}."
+        )
+
+    previous_code = load_code(
+        previous_metadata["code_file"]
+    )
+
+    return next_round, previous_code
+
+def generate_resumable_chain(
+    template,
+    rephrasing_index,
+    number_of_rounds,
+    model_name,
+    generate_function,
+    chain_id,
+    metadata_records
+):
+
+    start_round, previous_code = get_resume_state(
+        chain_id,
+        number_of_rounds,
+        metadata_records
+    )
+
+    if start_round is None:
+
+        print(
+            f"Chain already complete: {chain_id}"
+        )
+
+        return []
+
+    print(
+        f"Starting chain {chain_id} "
+        f"from round {start_round}."
+    )
+
+    return generate_chain(
+        template=template,
+        rephrasing_index=rephrasing_index,
+        number_of_rounds=number_of_rounds,
+        model_name=model_name,
+        generate_function=generate_function,
+        chain_id=chain_id,
+        start_round=start_round,
+        previous_code=previous_code
+    )
+
+def run_batch(
+    model_id,
+    model_name,
+    generate_function,
+    limit=None
+):
+
+    planned_chains = get_all_planned_chains(
+        model_id
+    )
+
+    if limit is not None:
+
+        if limit <= 0:
+
+            raise ValueError(
+                "Batch limit must be greater than 0."
+            )
+
+        planned_chains = planned_chains[:limit]
+
+    metadata_records = (
+        load_existing_metadata()
+    )
+
+    generated_samples = []
+
+    for planned in planned_chains:
+
+        prompt_id = planned[
+            "prompt_id"
+        ]
+
+        chain = planned[
+            "chain"
+        ]
+
+        chain_id = create_chain_id(
+            model_id,
+            prompt_id,
+            chain["chain_number"]
+        )
+
+        print(
+            f"\nProcessing chain: {chain_id}"
+        )
+
+        template = load_real_template(
+            prompt_id
+        )
+
+        samples = generate_resumable_chain(
+            template=template,
+
+            rephrasing_index=(
+                chain["rephrasing_index"]
+            ),
+
+            number_of_rounds=(
+                chain["rounds"]
+            ),
+
+            model_name=model_name,
+
+            generate_function=generate_function,
+
+            chain_id=chain_id,
+
+            metadata_records=metadata_records
+        )
+
+        if samples:
+
+            generated_samples.extend(
+                samples
+            )
+
+            metadata_records.extend(
+                samples
+            )
+
+    return generated_samples
 
 # =========================================================
 # 5. Build the initial prompt
@@ -284,7 +655,8 @@ Do not explain your changes.
 Previous code:
 
 ```javascript
-{previous_code}""".strip()
+{previous_code}
+```""".strip()
 
 # 7. Generate one chain
 # =========================================================
@@ -294,7 +666,10 @@ def generate_chain(
     rephrasing_index,
     number_of_rounds,
     model_name,
-    generate_function
+    generate_function,
+    chain_id,
+    start_round=1,
+    previous_code=None
 ):
 
     if number_of_rounds not in [2, 3, 4]:
@@ -304,20 +679,16 @@ def generate_chain(
             "2, 3, or 4 rounds."
         )
 
-    chain_id = create_chain_id()
-
     prompt = build_initial_prompt(
         template,
         rephrasing_index
     )
 
-    previous_code = None
-
     generated_samples = []
 
     for round_number in range(
-        1,
-        number_of_rounds + 1
+    start_round,
+    number_of_rounds + 1
     ):
 
         if round_number == 1:
@@ -333,8 +704,19 @@ def generate_chain(
                 )
             )
 
-        current_code = generate_function(
+        current_output = generate_function(
             current_prompt
+        )
+
+        if not current_output:
+
+            raise RuntimeError(
+                f"Model returned empty output "
+                f"for round {round_number}."
+            )
+
+        current_code = extract_code(
+            current_output
         )
 
         if not current_code:
@@ -459,7 +841,15 @@ if __name__ == "__main__":
         "\nGenerating planned chain..."
     )
 
-    samples = generate_chain(
+    chain_id = create_chain_id(
+    MODEL_ID,
+    prompt_id,
+    chain["chain_number"]
+)
+
+    metadata_records = load_existing_metadata()
+
+    samples = generate_resumable_chain(
         template=template,
 
         rephrasing_index=(
@@ -476,21 +866,22 @@ if __name__ == "__main__":
             generate_code(
                 MODEL_ID,
                 prompt
+            ),
+
+        chain_id=chain_id,
+
+        metadata_records=metadata_records
+    )
+
+    print("\nPlanned chain generated.")
+
+    if samples:
+        print(f"New samples generated: {len(samples)}")
+        print(f"Chain ID: {samples[0]['chain_id']}")
+        for sample in samples:
+            print(
+                f"Round {sample['round']}: {sample['sample_id']}"
             )
-    )
-
-    print(
-        "\nPlanned chain generated."
-    )
-
-    print(
-        f"Chain ID: "
-        f"{samples[0]['chain_id']}"
-    )
-
-    for sample in samples:
-
-        print(
-            f"Round {sample['round']}: "
-            f"{sample['sample_id']}"
-        )
+    else:
+        print("No new samples generated.")
+        print(f"Chain ID: {chain_id}")
