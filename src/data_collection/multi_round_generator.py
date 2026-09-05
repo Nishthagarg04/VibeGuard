@@ -792,6 +792,7 @@ def generate_chain(
 # =========================================================
 # 8. Main test
 # =========================================================
+
 if __name__ == "__main__":
 
     MODEL_ID = (
@@ -803,85 +804,41 @@ if __name__ == "__main__":
     )
 
     print(
-        "Loading first planned chain..."
+        "\nRunning first 3 planned chains..."
     )
 
-    (
-        prompt_id,
-        template_plan,
-        chain
-    ) = get_first_planned_chain(
-        MODEL_ID
-    )
-
-    print(
-        f"\nTemplate: {prompt_id}"
-    )
-
-    print(
-        f"Group: "
-        f"{template_plan['group']}"
-    )
-
-    print(
-        f"Rounds: "
-        f"{chain['rounds']}"
-    )
-
-    print(
-        f"Rephrasing: "
-        f"{chain['rephrasing_index']}"
-    )
-
-    template = load_real_template(
-        prompt_id
-    )
-
-    print(
-        "\nGenerating planned chain..."
-    )
-
-    chain_id = create_chain_id(
-    MODEL_ID,
-    prompt_id,
-    chain["chain_number"]
-)
-
-    metadata_records = load_existing_metadata()
-
-    samples = generate_resumable_chain(
-        template=template,
-
-        rephrasing_index=(
-            chain["rephrasing_index"]
-        ),
-
-        number_of_rounds=(
-            chain["rounds"]
-        ),
-
+    samples = run_batch(
+        model_id=MODEL_ID,
         model_name=MODEL_NAME,
-
         generate_function=lambda prompt:
             generate_code(
                 MODEL_ID,
                 prompt
             ),
-
-        chain_id=chain_id,
-
-        metadata_records=metadata_records
+        limit=3
     )
 
-    print("\nPlanned chain generated.")
+    print(
+        "\nBatch generation complete."
+    )
 
     if samples:
-        print(f"New samples generated: {len(samples)}")
-        print(f"Chain ID: {samples[0]['chain_id']}")
+
+        print(
+            f"New samples generated: "
+            f"{len(samples)}"
+        )
+
         for sample in samples:
+
             print(
-                f"Round {sample['round']}: {sample['sample_id']}"
+                f"Chain {sample['chain_id']} "
+                f"| Round {sample['round']} "
+                f"| Sample {sample['sample_id']}"
             )
+
     else:
-        print("No new samples generated.")
-        print(f"Chain ID: {chain_id}")
+
+        print(
+            "No new samples generated."
+        )
